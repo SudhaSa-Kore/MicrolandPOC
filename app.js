@@ -200,7 +200,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "addressLine": "1 Beifeng Wo,Haidian",
         "jobCode": "HR Professional (50029122)",
         "totalTeamSize": "0",
-        "dateOfBirth": "Sun Jul 24 1973",
+        "dateOfBirth": "Wed Jun 29 1973",
 		"birthday":"Fri 13 Jan 1976",
         "newToPosition": false,
         "division": "Corporate Services (CORP_SVCS)",
