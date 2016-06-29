@@ -511,16 +511,16 @@ app.get('/searchByKeyword/:category/:keyword',function(req,res){
 	fs.readFile('./Employee.json',function(err,data){
 			console.log('***************', err, data);
 			data = JSON.parse(data);
-			//var res = [];
-			var result = _.find(data, function(item){ 
+			var result = [];
+			/*var result = _.find(data, function(item){ 
 				console.log(item[category].indexOf(keyword)>-1);
 				return (_.lowerCase(item[category]).indexOf(keyword)>-1);
-				}); 
-				/* for (var i = 0; i < data.length; i++) {
+				}); */
+				 for (var i = 0; i < data.length; i++) {
                    if ((_.lowerCase(data[i][category]).indexOf(keyword)>-1)) {
-                    res.push(data[i]);
+                    result.push(data[i]);
                     }
-                         }*/
+                         }
 			console.log('*********************',result);
 		res.end(JSON.stringify(result));
 	
