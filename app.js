@@ -86,7 +86,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "addressLine": "2 Sanlihe Rd,Haidian",
         "jobCode": "HR Professional (50029122)",
         "totalTeamSize": "0",
-        "dateOfBirth": "Thu Jun 23 1974",
+        "dateOfBirth": "Wed Jun 29 1974",
         "newToPosition": false,
         "division": "Corporate Services (CORP_SVCS)",
         "veteranSeparated": false,
@@ -117,7 +117,7 @@ app.get('/getEmployeeDetails',function(req,res){
 		"emp_image":"http://blogs-images.forbes.com/jacobmorgan/files/2015/05/Jacob-Morgan_avatar_1430962685-400x400.jpg",
         "lastModifiedDateTime": "/Date(1462957988000+0000)/",
 		"image":"http://hpbirthday.net/wp-content/uploads/2016/01/the-collection-of-interesting-birthday-wishes-to-send-to-your-boss-1.jpg",
-		"anniversary":"Mon Jun 27 2016",
+		"anniversary":"Wed Jun 29 2016",
 		"anniversary_image":"http://imarriageanniversary.com/wp-content/uploads/2015/03/Wedding_Anniversary_Images_031.jpg",
         "username": "azeng",
         "married": true,
@@ -511,10 +511,16 @@ app.get('/searchByKeyword/:category/:keyword',function(req,res){
 	fs.readFile('./Employee.json',function(err,data){
 			console.log('***************', err, data);
 			data = JSON.parse(data);
+			//var res = [];
 			var result = _.find(data, function(item){ 
 				console.log(item[category].indexOf(keyword)>-1);
 				return (_.lowerCase(item[category]).indexOf(keyword)>-1);
-				});
+				}); 
+				/* for (var i = 0; i < data.length; i++) {
+                   if ((_.lowerCase(data[i][category]).indexOf(keyword)>-1)) {
+                    res.push(data[i]);
+                    }
+                         }*/
 			console.log('*********************',result);
 		res.end(JSON.stringify(result));
 	
