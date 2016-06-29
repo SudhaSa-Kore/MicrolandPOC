@@ -48,7 +48,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "addressLine": "19 Thatcher St",
         "jobCode": "Executive Management (50071000)",
         "totalTeamSize": "2",
-        "dateOfBirth": "Wed Jun 29 1976",
+        "dateOfBirth": "Wed Jun 22 1976",
         "newToPosition": false,
         "division": "Executive Office (EXEC)",
         "veteranSeparated": false,
@@ -58,7 +58,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "lastName": "Patrick",
         "hireDate": "/Date(1388966400000)/",
         "country": "USA",
-        "email": "jamespatrick@microland.com",
+        "email": "james@microland.com",
         "defaultLocale": "en_US",
         "minority": false,
         "department": "Shared Services (5000018)",
@@ -86,7 +86,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "addressLine": "2 Sanlihe Rd,Haidian",
         "jobCode": "HR Professional (50029122)",
         "totalTeamSize": "0",
-        "dateOfBirth": "Wed Jun 29 1974",
+        "dateOfBirth": "Mon Jun 27 1974",
         "newToPosition": false,
         "division": "Corporate Services (CORP_SVCS)",
         "veteranSeparated": false,
@@ -96,7 +96,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "lastName": "Wu",
         "hireDate": "/Date(1388966400000)/",
         "country": "USA",
-        "email": "adminsynch@microland.com",
+        "email": "synch@microland.com",
         "defaultLocale": "en_US",
         "minority": false,
         "department": "Compensation and Benefits CN (50100007)",
@@ -117,7 +117,7 @@ app.get('/getEmployeeDetails',function(req,res){
 		"emp_image":"http://blogs-images.forbes.com/jacobmorgan/files/2015/05/Jacob-Morgan_avatar_1430962685-400x400.jpg",
         "lastModifiedDateTime": "/Date(1462957988000+0000)/",
 		"image":"http://hpbirthday.net/wp-content/uploads/2016/01/the-collection-of-interesting-birthday-wishes-to-send-to-your-boss-1.jpg",
-		"anniversary":"Wed Jun 29 2016",
+		"anniversary":"Mon Jun 27 2016",
 		"anniversary_image":"http://imarriageanniversary.com/wp-content/uploads/2015/03/Wedding_Anniversary_Images_031.jpg",
         "username": "azeng",
         "married": true,
@@ -155,7 +155,7 @@ app.get('/getEmployeeDetails',function(req,res){
 		"emp_image":"http://juniorbiz.com/wp-content/uploads/2010/04/SabirulIslam.png",
         "lastModifiedDateTime": "/Date(1462957988000+0000)/",
 		"image":"http://www.birthdaywishes.guru/wp-content/uploads/2014/07/Birthday-Wishes-for-my-Friends.jpg",
-		"anniversary":"Wed Jun 29 2016",
+		"anniversary":"Fri Jul 15 2016",
 		"anniversary_image":"http://danielohlsen.com/uploads/fotos/wedding-wishes-sms-in-english_21517_600_400.jpg",
         "username": "flan",
         "married": true,
@@ -200,7 +200,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "addressLine": "1 Beifeng Wo,Haidian",
         "jobCode": "HR Professional (50029122)",
         "totalTeamSize": "0",
-        "dateOfBirth": "Wed Jun 29 1973",
+        "dateOfBirth": "Sun Jul 24 1973",
 		"birthday":"Fri 13 Jan 1976",
         "newToPosition": false,
         "division": "Corporate Services (CORP_SVCS)",
@@ -522,7 +522,7 @@ app.get('/searchByKeyword/:category/:keyword',function(req,res){
                     }
                          }
 			console.log('*********************',result);
-		res.end('{"users":'+JSON.stringify(result)+'}');
+		res.end(JSON.stringify('{"users":'+JSON.stringify(result)+'}'));
 	
 	});
 		
