@@ -48,7 +48,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "addressLine": "19 Thatcher St",
         "jobCode": "Executive Management (50071000)",
         "totalTeamSize": "2",
-        "dateOfBirth": "Wed Jun 22 1976",
+        "dateOfBirth": "Wed Jun 29 1976",
         "newToPosition": false,
         "division": "Executive Office (EXEC)",
         "veteranSeparated": false,
