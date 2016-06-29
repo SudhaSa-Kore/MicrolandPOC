@@ -155,7 +155,7 @@ app.get('/getEmployeeDetails',function(req,res){
 		"emp_image":"http://juniorbiz.com/wp-content/uploads/2010/04/SabirulIslam.png",
         "lastModifiedDateTime": "/Date(1462957988000+0000)/",
 		"image":"http://www.birthdaywishes.guru/wp-content/uploads/2014/07/Birthday-Wishes-for-my-Friends.jpg",
-		"anniversary":"Fri Jul 15 2016",
+		"anniversary":"Wed Jun 29 2016",
 		"anniversary_image":"http://danielohlsen.com/uploads/fotos/wedding-wishes-sms-in-english_21517_600_400.jpg",
         "username": "flan",
         "married": true,
