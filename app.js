@@ -522,7 +522,7 @@ app.get('/searchByKeyword/:category/:keyword',function(req,res){
                     }
                          }
 			console.log('*********************',result);
-		res.end(JSON.stringify('{"users":'+JSON.stringify(result)+'}'));
+		res.end('{"users":'+JSON.stringify(result)+'}');
 	
 	});
 		
