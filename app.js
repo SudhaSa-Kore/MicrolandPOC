@@ -279,7 +279,7 @@ app.get('/getEmployeeDetails',function(req,res){
         "addressLine": "11 Fragrant Hill Park,Haidian",
         "jobCode": "Management & Planning (50070999)",
         "totalTeamSize": "0",
-        "dateOfBirth": "Wed Jun 29 1968",
+        "dateOfBirth": "Thu Jun 30 1968",
 		"birthday":"Sun, 07 Jun 1986",
         "newToPosition": false,
         "division": "Corporate Services (CORP_SVCS)",
