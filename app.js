@@ -576,6 +576,51 @@ finalResult = "No Results Found";
 	});	
 }); 
 
+app.get('/holidays',function(req,res){
+	res.writeHead(200,{'Content-Type':'application/json'});
+	res.end(JSON.stringify({"holidays":[{
+		"date":"1st January",
+		"day":"Friday",
+		"holiday":"New Year"
+	},
+	{
+		"date":"15th January",
+		"day":"Friday",
+		"holiday":"Pongal"
+	},{
+		"date":"26th January",
+		"day":"Tuesday",
+		"holiday":"Republic Day"
+	},{
+		"date":"25th March",
+		"day":"Friday",
+		"holiday":"Good Friday"
+	},{
+		"date":"8th April",
+		"day":"Friday",
+		"holiday":"Ugadi"
+	},
+	{
+		"date":"6th July",
+		"day":"Wednesday",
+		"holiday":"Ramzan"
+	},{
+		"date":"15th August",
+		"day":"Monday",
+		"holiday":"Independence Day"
+	},
+	{
+		"date":"5th September",
+		"day":"Monday",
+		"holiday":"Vinayaka Chaturthi"
+	},
+	{
+		"date":"11th October",
+		"day":"Tuesday",
+		"holiday":"Dusserah"
+	}]}));
+});
+
 
 app.get('/acceptInvitation',function(req,res){
 	res.writeHead(200,{'Content-Type':'application/json'});
