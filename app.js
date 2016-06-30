@@ -571,8 +571,8 @@ finalResult = finalResult +"</div>";
 finalResult = "No Results Found";
 	
 	}
-	console.log(htmlencode.htmlEncode(finalResult));
-	res.end('{HTMLImageComponent:"'+htmlencode.htmlEncode(finalResult)+'"}');
+	console.log(JSON.stringify(htmlencode.htmlEncode(finalResult)));
+	res.end('{"HTMLImageComponent":'+JSON.stringify(htmlencode.htmlEncode(finalResult))+'}');
 	});	
 }); 
 
