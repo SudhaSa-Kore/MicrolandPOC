@@ -572,7 +572,7 @@ finalResult = "No Results Found";
 	
 	}
 	console.log(htmlencode.htmlEncode(finalResult));
-	res.end('{HTMLImageComponent:'+htmlencode.htmlEncode(finalResult)+'}');
+	res.end('{HTMLImageComponent:"'+htmlencode.htmlEncode(finalResult)+'"}');
 	});	
 }); 
 
