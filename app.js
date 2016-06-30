@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var htmlencode = require('htmlencode');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -527,6 +528,54 @@ app.get('/searchByKeyword/:category/:keyword',function(req,res){
 	});
 		
 }); 
+
+app.get('/search/:category/:keyword',function(req,res){
+	res.writeHead(200,{'Content-Type':'application/json'});
+	var category = req.params.category;
+	var keyword = _.lowerCase(req.params.keyword);
+	console.log("======================================>");
+	fs.readFile('./Employee.json',function(err,data){
+			console.log('***************', err, data);
+			data = JSON.parse(data);
+			var result = [];
+			var finalResult = '';
+			/*var result = _.find(data, function(item){ 
+				console.log(item[category].indexOf(keyword)>-1);
+				return (_.lowerCase(item[category]).indexOf(keyword)>-1);
+				}); */
+				 for (var i = 0; i < data.length; i++) {
+                   if ((_.lowerCase(data[i][category]).indexOf(keyword)>-1)) {
+                    result.push(data[i]);
+                    }
+                         }
+			console.log('*********************',result);
+		if(result.length >0){
+finalResult = "<div><h1 style='background:#337ab7;color:#ffffff;font-size:15px;padding:10px;text-align:center;font-weight:normal;'>Employees Details</h1>";
+for(var i=0;i<result.length;i++){
+finalResult = finalResult +"<div style='display:inline-block;vertical-align:top;'><img style='width:120px;height:125px' src='" + result[i].emp_image + "' > " + "</div>"; 
+finalResult = finalResult +"<div style='display:inline-block;margin:0px 0px 0px 15px;'>";
+finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:10px;display:inline-block;margin:0px 5px 0px 0px;'><img style='max-width:100%;' src='http://avenir-it.com/hrms/koreimages/user.png'/></span>" + result[i].defaultFullName + "</div>";
+finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:10px;display:inline-block;margin:0px 5px 0px 0px;'><img style='max-width:100%;' src='http://avenir-it.com/hrms/koreimages/designation.png' /></span>" + result[i].jobTitle + "</div>";
+finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:10px;display:inline-block;margin:0px 5px 0px 0px;'><img style='max-width:100%;' src='http://avenir-it.com/hrms/koreimages/employee-id.png' /></span>" + result[i].userId + "</div>";
+finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:10px;display:inline-block;margin:0px 5px 0px 0px;'><img style='max-width:100%;' src='http://avenir-it.com/hrms/koreimages/email.png' /></span>"+'<a href="mailto:'+result[i].email+'">' + result[i].email + "</a></div>";
+finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:10px;display:inline-block;margin:0px 5px 0px 0px;'><img style='max-width:100%;' src='http://avenir-it.com/hrms/koreimages/phone.png' /></span>" + result[i].businessPhone + "</div>"
+finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:-50px;display:inline-block;margin:0px 5px 0px 0px;'><img style='width:10px;' src='https://d30y9cdsu7xlg0.cloudfront.net/png/62562-200.png' /></span> Date of Birth : " + result[i].dateOfBirth.substring(4,result[i].dateOfBirth.length-5) + "</div>";
+finalResult = finalResult +"</div>";
+finalResult = finalResult +'<br>';
+finalResult = finalResult +'<br>';
+
+}
+
+finalResult = finalResult +"</div>";
+}else{
+finalResult = "No Results Found";
+	
+	}
+	console.log(htmlencode.htmlEncode(finalResult));
+	res.end('{HTMLImageComponent:'+htmlencode.htmlEncode(finalResult)+'}');
+	});	
+}); 
+
 
 app.get('/acceptInvitation',function(req,res){
 	res.writeHead(200,{'Content-Type':'application/json'});
