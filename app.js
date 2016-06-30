@@ -357,7 +357,7 @@ app.get('/getEmployeeDetails',function(req,res){
 		"image":"http://i.123g.us/c/birth_flowers/pc/111534_pc.jpg",
         "jobCode": "Executive Support (50011876)",
         "totalTeamSize": "0",
-        "dateOfBirth": "Fri Jun 24 1989",
+        "dateOfBirth": "Thu Jun 30 1989",
 		"birthday":"Mon, 16 Sep 1988",
         "newToPosition": false,
         "division": "Manufacturing (MANU)",
