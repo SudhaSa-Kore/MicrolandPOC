@@ -508,6 +508,7 @@ app.get('/searchByKeyword/:category/:keyword',function(req,res){
 	res.writeHead(200,{'Content-Type':'application/json'});
 	var category = req.params.category;
 	var keyword = _.lowerCase(req.params.keyword);
+	console.log(keyword);
 	console.log("======================================>");
 	fs.readFile('./Employee.json',function(err,data){
 			console.log('***************', err, data);
@@ -519,10 +520,11 @@ app.get('/searchByKeyword/:category/:keyword',function(req,res){
 				}); */
 				 for (var i = 0; i < data.length; i++) {
                    if ((_.lowerCase(data[i][category]).indexOf(keyword)>-1)) {
+					   console.log(data[i][category]+'*************matched'+keyword);
                     result.push(data[i]);
                     }
                          }
-			console.log('*********************',result);
+			//console.log('*********************',result);
 		res.end('{"users":'+JSON.stringify(result)+'}');
 	
 	});
@@ -552,7 +554,7 @@ app.get('/search/:category/:keyword',function(req,res){
 		if(result.length >0){
 finalResult = "<div><h1 style='background:#337ab7;color:#ffffff;font-size:15px;padding:10px;text-align:center;font-weight:normal;'>Employees Details</h1>";
 for(var i=0;i<result.length;i++){
-finalResult = finalResult +"<div style='display:inline-block;vertical-align:top;'><img style='width:120px;height:125px' src='" + result[i].emp_image + "' > " + "</div>"; 
+finalResult = finalResult +"<div style='display:inline-block;vertical-align:top;'><img style='width:120px;height:125px;border-radius:50%;' src='" + result[i].emp_image + "' > " + "</div>"; 
 finalResult = finalResult +"<div style='display:inline-block;margin:0px 0px 0px 15px;'>";
 finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:10px;display:inline-block;margin:0px 5px 0px 0px;'><img style='max-width:100%;' src='http://avenir-it.com/hrms/koreimages/user.png'/></span>" + result[i].defaultFullName + "</div>";
 finalResult = finalResult +"<div style='font-weight:normal;font-size:14px;'><span style='width:10px;display:inline-block;margin:0px 5px 0px 0px;'><img style='max-width:100%;' src='http://avenir-it.com/hrms/koreimages/designation.png' /></span>" + result[i].jobTitle + "</div>";
