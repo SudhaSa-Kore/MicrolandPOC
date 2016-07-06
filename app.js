@@ -621,6 +621,23 @@ app.get('/holidays',function(req,res){
 	}]}));
 });
 
+app.get('/alertHolidays',function(req,res){
+	res.writeHead(200,{'Content-Type':'application/json'});
+	fs.readFile('./holiday.json',function(err,data){
+		console.log('**************',err,data);
+		data = JSON.parse(data);
+		var result = _.find(data,function(item){
+			var newDate = new Date();
+			newDate = newDate.toString();
+			console.log('+++++++++++++',newDate,item.date);
+				return (newDate.indexOf(item.date)>-1);
+				
+		});
+		console.log(JSON.stringify(result));
+		res.end(JSON.stringify(result));
+	});
+});
+
 
 app.get('/acceptInvitation',function(req,res){
 	res.writeHead(200,{'Content-Type':'application/json'});
