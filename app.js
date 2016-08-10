@@ -645,6 +645,44 @@ app.get('/acceptInvitation',function(req,res){
 	res.end(JSON.stringify({"accept":"Invitation accepted"}))
 });
 
+
+app.post('/selctorTool',function(req,res){
+	res.writeHead(200,{'Content-Type':'application/json'});
+	if(req.body.cardCategory === 'lowFeesCard'){
+		if(req.body.payOffCategory === 'allOfIt'){
+			res.end(JSON.stringify({
+    "recommendedCard": "NAB Low Fee Card",
+    "url": "http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-low-fee-card"
+}));
+		}else{
+		res.end(JSON.stringify({"recommendedCard":"NAB Low Rate Card","url":"http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-low-rate-card"}));
+		}
+	}else if(req.body.cardCategory === 'servicesCard'){
+		res.end(JSON.stringify({"recommendedCard":"NAB Premium Card","url":"http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-premium-card"}));
+	}else if(req.body.cardCategory === 'rewardsCard'){
+		if(req.body.rewardsProgram !== 'undefined' && req.body.rewardsProgram === 'qantasRewards'){
+		if((req.body.monthlySpend === 'under1000' && req.body.payOffCategory === 'allOfIt') || (req.body.monthlySpend === 'under3000' && req.body.payOffCategory === 'allOfIt') || ((req.body.monthlySpend === 'under7000' && req.body.payOffCategory === 'allOfIt')|| (req.body.monthlySpend === 'under7000' && req.body.payOffCategory === 'itDepends')) || req.body.monthlySpend === 'over7000'){
+			res.end(JSON.stringify({"recommendedCard":"NAB Qantas Rewards Premium Card","url":"http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-qantas-rewards-premium-card"}));
+		}else{
+			res.end(JSON.stringify({"recommendedCard":"NAB Qantas Rewards Card","url":"http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-qantas-rewards-card"}));
+		}
+		}
+	}else if(req.body.cardCategory === 'rewardsCard'){
+		if(req.body.rewardsProgram !== 'undefined' && req.body.rewardsProgram === 'velocityRewards'){
+		if((req.body.monthlySpend === 'under1000' && req.body.payOffCategory === 'allOfIt') || (req.body.monthlySpend === 'under3000' && req.body.payOffCategory === 'allOfIt') || ((req.body.monthlySpend === 'under7000' && req.body.payOffCategory === 'allOfIt')|| (req.body.monthlySpend === 'under7000' && req.body.payOffCategory === 'itDepends')) || req.body.monthlySpend === 'over7000'){
+			res.end(JSON.stringify({"recommendedCard":"NAB Velocity Rewards Premium Card","url":"http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-velocity-rewards-premium-card"}));
+		}else{
+			res.end(JSON.stringify({"recommendedCard":"NAB Velocity Rewards Card","url":"http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-velocity-rewards-card"}));
+		}
+		}
+	}else if(req.body.cardCategory === 'rewardsCard'){
+		if(req.body.rewardsProgram !== 'undefined' && req.body.rewardsProgram === 'flybuysRewards'){
+						res.end(JSON.stringify({"recommendedCard":"NAB flybuys Rewards Card","url":"http://www.nab.com.au/personal/banking/credit-cards/checklist-nab-flybuys-rewards-card"}));
+		}
+	}
+		
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
